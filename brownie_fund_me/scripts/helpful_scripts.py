@@ -4,8 +4,8 @@ from web3 import Web3
 
 LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["development", "ganache-local", "ganache-gui"]
 
-DECIMALS = 18
-DEFAULT_PRICE = 2000
+DECIMALS = 8 #18
+DEFAULT_PRICE = 200000000000
 
 def get_account():
     if network.show_active() in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
@@ -19,6 +19,6 @@ def deploy_mocks():
     print(f"Ths active network is {network.show_active()}")
     print(f"Deploying Mocks...")
     if len(MockV3Aggregator) <= 0:
-        MockV3Aggregator.deploy(DECIMALS, Web3.toWei(DEFAULT_PRICE, "ether"), {"from": account})
+        MockV3Aggregator.deploy(DECIMALS, DEFAULT_PRICE, {"from": account})
 
     print("Mocks Deployed!")

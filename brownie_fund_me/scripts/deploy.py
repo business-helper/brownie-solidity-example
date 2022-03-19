@@ -20,6 +20,7 @@ def deploy_fund_me():
     )
     # fund_me = FundMe.deploy({"from": account})
     print(f"Contract deployed to {fund_me.address}")
+    return fund_me
 
 
 def main():
