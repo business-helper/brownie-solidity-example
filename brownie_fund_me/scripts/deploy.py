@@ -13,6 +13,8 @@ def deploy_fund_me():
         deploy_mocks()
         price_feed_address = MockV3Aggregator[-1].address
 
+    print(f"[Balance] {account.balance()}")
+
     fund_me = FundMe.deploy(
         price_feed_address,
         {"from": account},
